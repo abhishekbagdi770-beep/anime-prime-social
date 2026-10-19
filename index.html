@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime Prime Social</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #0b0b12;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #171421;
+      padding: 18px;
+      text-align: center;
+      border-bottom: 2px solid #8b5cf6;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #c4a1ff;
+    }
+
+    header p {
+      color: #bbb;
+      margin-bottom: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      padding: 14px 5px;
+      background: #171421;
+      position: sticky;
+      top: 0;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 14px;
+      padding: 8px;
+    }
+
+    main {
+      max-width: 600px;
+      margin: auto;
+      padding: 16px;
+    }
+
+    .welcome, .card {
+      background: #191724;
+      border: 1px solid #393348;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .welcome h2 {
+      color: #c4a1ff;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .tag {
+      color: #c4a1ff;
+      font-size: 13px;
+    }
+
+    button.action {
+      background: #8b5cf6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 11px 16px;
+      cursor: pointer;
+    }
+
+    #feedMessage {
+      color: #bbb;
+    }
+
+    footer {
+      text-align: center;
+      color: #888;
+      padding: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🌌 Anime Prime</h1>
+    <p>Your anime community starts here.</p>
+  </header>
+
+  <nav>
+    <button onclick="showSection('home')">🏠 Home</button>
+    <button onclick="showSection('discover')">🔎 Discover</button>
+    <button onclick="showSection('profile')">👤 Profile</button>
+  </nav>
+
+  <main>
+    <section id="home">
+      <div class="welcome">
+        <h2>Welcome to Anime Prime Social!</h2>
+        <p>A place for anime fans to connect, share ideas, and celebrate their favorite anime.</p>
+        <button class="action" onclick="showSection('discover')">
+          Explore Community
+        </button>
+      </div>
+
+      <h2>🔥 Community Feed</h2>
+
+      <div id="feed">
+        <div class="card">
+          <span class="tag">ANIME DISCUSSION</span>
+          <h3>Which anime is your favorite?</h3>
+          <p>Tell the community which anime you love and why!</p>
+          <button class="action" onclick="likePost(this)">❤️ Like <span>0</span></button>
+        </div>
+
+        <div class="card">
+          <span class="tag">ANIME FANS</span>
+          <h3>Welcome, Anime Fans!</h3>
+          <p>Share your favorite characters, theories, and anime moments.</p>
+          <button class="action" onclick="likePost(this)">❤️ Like <span>0</span></button>
+        </div>
+      </div>
+
+      <p id="feedMessage"></p>
+    </section>
+
+    <section id="discover" hidden>
+      <div class="card">
+        <h2>🔎 Discover Anime Prime</h2>
+        <p>Find anime discussions and meet fellow fans.</p>
+        <p>🚀 More community features are coming soon!</p>
+      </div>
+    </section>
+
+    <section id="profile" hidden>
+      <div class="card">
+        <h2>👤 Your Profile</h2>
+        <p>Your personal anime profile will be built in a future step.</p>
+        <p>Account registration and secure login are not implemented yet.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Anime Prime Social © 2026
+  </footer>
+
+  <script>
+    function showSection(sectionName) {
+      document.querySelectorAll('main section').forEach(section => {
+        section.hidden = true;
+      });
+
+      document.getElementById(sectionName).hidden = false;
+      window.scrollTo(0, 0);
+    }
+
+    function likePost(button) {
+      const count = button.querySelector('span');
+      count.textContent = Number(count.textContent) + 1;
+    }
+  </script>
+
+</body>
+</html>
